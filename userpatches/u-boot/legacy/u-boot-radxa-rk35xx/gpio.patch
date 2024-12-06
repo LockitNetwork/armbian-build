@@ -1,0 +1,41 @@
+diff --git a/board/rockchip/evb_rk3588/evb_rk3588.c b/board/rockchip/evb_rk3588/evb_rk3588.c
+index 9b468612c76..2c474533e60 100644
+--- a/board/rockchip/evb_rk3588/evb_rk3588.c
++++ b/board/rockchip/evb_rk3588/evb_rk3588.c
+@@ -9,6 +9,7 @@
+ #include <usb.h>
+ #include <linux/usb/phy-rockchip-usbdp.h>
+ #include <asm/io.h>
++#include <asm/gpio.h>
+ #include <rockusb.h>
+ #include <adc.h>
+ #include <dm.h>
+@@ -27,6 +28,28 @@ struct variant_def {
+ 
+ DECLARE_GLOBAL_DATA_PTR;
+ 
++int rk_board_init(void) {
++  gpio_request(103, "SL_RD");
++  gpio_direction_output(103, 0);
++
++  gpio_request(138, "SL_GN");
++  gpio_direction_output(138, 0);
++
++  gpio_request(106, "SL_BL");
++  gpio_direction_output(106, 0);
++
++  gpio_request(150, "WL_RD");
++  gpio_direction_output(150, 0);
++
++  gpio_request(63, "WL_GN");
++  gpio_direction_output(63, 0);
++
++  gpio_request(47, "WL_BL");
++  gpio_direction_output(47, 0);
++
++  return 0;
++}
++
+ #ifdef CONFIG_USB_DWC3
+ #define CRU_BASE		0xfd7c0000
+ #define CRU_SOFTRST_CON42	0x0aa8

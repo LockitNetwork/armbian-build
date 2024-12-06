@@ -14,10 +14,10 @@ index f3fc426ec76f..b3c95dde5eaf 100644
  dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 diff --git a/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-leds.dts b/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-leds.dts
 new file mode 100644
-index 000000000000..5c315935a808
+index 000000000000..f8003155cb75
 --- /dev/null
 +++ b/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-leds.dts
-@@ -0,0 +1,135 @@
+@@ -0,0 +1,126 @@
 +/dts-v1/;
 +/plugin/;
 +
@@ -95,7 +95,7 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm7m3_pins>;
 +		};
 +	};
 +
@@ -104,7 +104,7 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm15m3_pins>;
 +		};
 +	};
 +
@@ -113,7 +113,7 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm13m2_pins>;
 +		};
 +	};
 +
@@ -122,7 +122,7 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm8m0_pins>;
 +		};
 +	};
 +
@@ -131,7 +131,7 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm14m1_pins>;
 +		};
 +	};
 +
@@ -140,16 +140,8 @@ index 000000000000..5c315935a808
 +
 +		__overlay__ {
 +			status = "okay";
-+			pinctrl-0 = <0xffffffff>;
++			pinctrl-0 = <&pwm3m1_pins>;
 +		};
 +	};
-+
-+	__fixups__ {
-+		pwm7m3_pins = "/fragment@2/__overlay__:pinctrl-0:0";
-+		pwm15m3_pins = "/fragment@3/__overlay__:pinctrl-0:0";
-+		pwm13m2_pins = "/fragment@4/__overlay__:pinctrl-0:0";
-+		pwm8m0_pins = "/fragment@5/__overlay__:pinctrl-0:0";
-+		pwm14m1_pins = "/fragment@6/__overlay__:pinctrl-0:0";
-+		pwm3m1_pins = "/fragment@7/__overlay__:pinctrl-0:0";
-+	};
 +};
+\ No newline at end of file

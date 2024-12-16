@@ -1,0 +1,29 @@
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
+index 434f9f6107ec..b5e5dd9ca349 100755
+--- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
+@@ -509,7 +509,7 @@ &i2s7_8ch {
+ };
+ 
+ &i2s0_8ch {
+-	status = "okay";
++	status = "disabled";
+ 	pinctrl-0 = <&i2s0_lrck
+ 		     &i2s0_sclk
+ 		     &i2s0_sdi0
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
+index 1ec302a1a010..b8097ae971ca 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
+@@ -3427,11 +3427,6 @@ power-domain@RK3588_PD_SDIO {
+ 					 <&cru HCLK_NVM_ROOT>;
+ 				pm_qos = <&qos_sdio>;
+ 			};
+-			power-domain@RK3588_PD_AUDIO {
+-				reg = <RK3588_PD_AUDIO>;
+-				clocks = <&cru HCLK_AUDIO_ROOT>,
+-					 <&cru PCLK_AUDIO_ROOT>;
+-			};
+ 			power-domain@RK3588_PD_SDMMC {
+ 				reg = <RK3588_PD_SDMMC>;
+ 				pm_qos = <&qos_sdmmc>;

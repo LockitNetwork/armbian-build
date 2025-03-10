@@ -1,14 +1,15 @@
 diff --git a/arch/arm64/boot/dts/rockchip/overlay/Makefile b/arch/arm64/boot/dts/rockchip/overlay/Makefile
-index f3fc426ec76f..b3c95dde5eaf 100644
+index f3fc426ec76f..bb77acbf856c 100644
 --- a/arch/arm64/boot/dts/rockchip/overlay/Makefile
 +++ b/arch/arm64/boot/dts/rockchip/overlay/Makefile
-@@ -189,7 +189,8 @@ dtbo-$(CONFIG_ARCH_ROCKCHIP) += \
+@@ -189,7 +189,9 @@ dtbo-$(CONFIG_ARCH_ROCKCHIP) += \
  	rk3588-uart8-m1.dtbo \
  	rk3588-w1-gpio3-b3.dtbo \
  	rk3588-w1-gpio4-b1.dtbo \
 -	rk3588-hdmirx.dtbo
 +	rk3588-hdmirx.dtbo \
-+	rk3588-vcb2-leds.dtbo
++	rk3588-vcb2-leds.dtbo \
++	rk3588-vcb2-pm.dtbo
  
  
  dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
@@ -145,3 +146,27 @@ index 000000000000..f8003155cb75
 +	};
 +};
 \ No newline at end of file
+diff --git a/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-pm.dts b/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-pm.dts
+new file mode 100644
+index 000000000000..db46da4c1511
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/overlay/rk3588-vcb2-pm.dts
+@@ -0,0 +1,18 @@
++/dts-v1/;
++/plugin/;
++
++/ {
++    compatible = "rockchip,rk3588";
++    fragment@0 {
++        target = <&uart4>;
++        __overlay__ {
++            status = "okay";
++            pinctrl-0 = <&uart4m2_xfer>;
++
++            vcb2-pm {
++                status = "okay";
++                compatible = "viv,vcb2-pm";
++            };
++        };
++    };
++};
